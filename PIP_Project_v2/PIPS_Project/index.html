@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/game.js"></script>
+	<script>g = generator();</script>	
+</head>
+<body>
+	<main>
+		<script>
+			document.write('<section class="game_list"><section class="game_pole">	');
+				for(var i = 0; i < 10;i++)
+				{
+					for(var j = 0; j < 10; j++)
+					{
+						if((i == 0) && (j == 0))
+						{
+							document.write('<div class="point start" data-rotation="1"> <span class="pipe"></span></div>');
+						} else {
+							document.write('<div class="point ');
+							if((g[i][j] == horz)||(g[i][j] == vert))
+								{
+									document.write('lines');
+
+								} else if((g[i][j] == bok12)||(g[i][j] == bok21)||(g[i][j] == bok32)||(g[i][j] == bok23))
+									{
+										document.write('arc');
+									}
+
+									document.write('" data-rotation="1"> <span class="pipe"></span></div>');
+							  }
+					}
+				}
+			document.write('</section></section>');
+		</script>
+	</main>
+</body>
+</html>
